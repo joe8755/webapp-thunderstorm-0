@@ -5,6 +5,7 @@ from flask import Flask, request
 import platform
 import psutil
 import psycopg2
+import datetime
 #import logging
 
 app = Flask(__name__)
@@ -31,6 +32,7 @@ def version2():
 @app.route('/v3')
 def version3():
     # Logging access to the site to PostgreSQL
+    access_time = datetime.datetime.now()
     conn = psycopg2.connect(
         dbname="postgres",
         user="postgres",
@@ -39,7 +41,7 @@ def version3():
         port="5432"
     )
     cur = conn.cursor()
-    cur.execute("INSERT INTO access_logs (timestamp, remote_addr, request_url) VALUES (%s, %s, %s)", (str(request.timestamp), request.remote_addr, request.url))
+    cur.execute("INSERT INTO access_logs (access_time, remote_addr, request_url) VALUES (%s, %s, %s)", (access_time, request.remote_addr, request.url))
     conn.commit()
     cur.close()
     conn.close()
