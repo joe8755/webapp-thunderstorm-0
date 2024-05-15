@@ -16,6 +16,6 @@ spec:
     #  protocol: TCP
     #  name: grpc
     - name: http
-      port: 80
+      port: 8080
       protocol: TCP
-      targetPort: http
+      targetPort: 8080

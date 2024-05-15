@@ -1,19 +1,19 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: webapp-thunderstorm-0-ingress
+  name: podinfo-ingress
   #annotations:
   #  nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  ## add 127.0.0.1 webapp-thunderstorm-0.local to your etc/hosts
-  - host: webapp-thunderstorm-0.local
+  ## add 127.0.0.1 podinfo.local to your etc/hosts
+  - host: podinfo.local
     http:
       paths:
       - pathType: Prefix
         path: /
         backend:
           service:
-            name: webapp-thunderstorm-0-service
+            name: podinfo
             port:
-              number: 8080
+              number: 9898
