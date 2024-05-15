@@ -1,11 +1,11 @@
-from opentelemetry import trace
-from opentelemetry import metrics
+#from opentelemetry import trace
+#from opentelemetry import metrics
 
 from flask import Flask, request
 import platform
 import psutil
 import psycopg2
-import logging
+#import logging
 
 app = Flask(__name__)
 
