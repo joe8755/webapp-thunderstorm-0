@@ -15,7 +15,7 @@ RUN python3 -m venv /webapp-thunderstorm-0-python-environment
 
 ENV PATH /webapp-thunderstorm-0-python-environment/bin:$PATH
 
-RUN pip install 'flask<3' 'werkzeug<3' psycopg2-binary opentelemetry-distro opentelemetry-exporter-otlp --no-input
+RUN pip install 'flask<3' 'werkzeug<3' psutil psycopg2-binary opentelemetry-distro opentelemetry-exporter-otlp --no-input
 
 RUN opentelemetry-bootstrap -a install
 
