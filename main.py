@@ -1,7 +1,11 @@
+from opentelemetry import trace
+from opentelemetry import metrics
+
 from flask import Flask, request
 import platform
 import psutil
 import psycopg2
+import logging
 
 app = Flask(__name__)
 
@@ -28,11 +32,11 @@ def version2():
 def version3():
     # Logging access to the site to PostgreSQL
     conn = psycopg2.connect(
-        dbname="your_database",
-        user="your_username",
-        password="your_password",
-        host="your_host",
-        port="your_port"
+        dbname="postgres",
+        user="postgres",
+        password="mPIUBTe1Uo",
+        host="my-release-postgresql.default.svc.cluster.local",
+        port="5432"
     )
     cur = conn.cursor()
     cur.execute("INSERT INTO access_logs (timestamp, remote_addr, request_url) VALUES (%s, %s, %s)", (str(request.timestamp), request.remote_addr, request.url))

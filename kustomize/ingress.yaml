@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: webapp-thunderstorm-0-ingress
+  #annotations:
+  #  nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  ## add 127.0.0.1 webapp-thunder-storm-0.local to your etc/hosts
+  - host: webapp-thunderstorm-0.local
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: webapp-thunderstorm-0-service
+            port:
+              number: 80

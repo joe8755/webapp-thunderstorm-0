@@ -1,0 +1,13 @@
+NAME: pgadmin4
+LAST DEPLOYED: Wed May 15 09:44:43 2024
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+NOTES:
+CHART NAME: pgadmin4
+CHART VERSION: 1.25.1
+APP VERSION: 8.5
+
+1. Get the application URL by running these commands:
+  export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/name=pgadmin4,app.kubernetes.io/instance=pgadmin4" -o jsonpath="{.items[0].metadata.name}")  echo "Visit http://127.0.0.1:8080 to use your application"
+  kubectl port-forward $POD_NAME 8080:80

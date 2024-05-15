@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp-thunderstorm-0-service
+spec:
+  type: ClusterIP
+  selector:
+    app: webapp-thunderstorm-0
+  ports:
+    #- name: http
+    #  port: 9898
+    #  protocol: TCP
+    #  targetPort: http
+    #- port: 9999
+    #  targetPort: grpc
+    #  protocol: TCP
+    #  name: grpc
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: http
